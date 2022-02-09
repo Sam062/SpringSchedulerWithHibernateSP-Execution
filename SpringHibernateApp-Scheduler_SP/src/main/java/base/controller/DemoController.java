@@ -46,19 +46,15 @@ public class DemoController {
 		}
 		return writeValueAsString;
 	}
-//	@GetMapping(value = "/empbackup")
-//	public @ResponseBody String showEmpBackup() {
-//		EmployeeBackup eb = new EmployeeBackup(101, 101, null, null);
-//		
-//		ObjectMapper mapper=new ObjectMapper();
-//		String writeValueAsString=null;
-//		try {
-//			writeValueAsString = mapper.writeValueAsString(eb);
-//		} catch (JsonProcessingException e) {
-//			e.printStackTrace();
-//		}
-//		return writeValueAsString;
-//	}
+	@GetMapping(value = "/getempbackup")
+	public @ResponseBody String showEmpBackup() {
+		List<EmployeeBackup> list = serv.getEmpBackupList();
+		
+		System.out.println("******* EMP BACKUP LIST :: ");
+		System.out.println(list);
+		return list.toString();
+		
+	}
 
 	@GetMapping(value = "/empbyid")
 	public @ResponseBody String showEmp(@RequestParam("empid") Integer id) {

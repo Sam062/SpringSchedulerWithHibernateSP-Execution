@@ -13,7 +13,8 @@ public class AppSchedulerConfig {
 	@Autowired
 	private EmployeeService serv;
 
-	@Scheduled(fixedRate = 600000l)
+//	@Scheduled(fixedRate = 600000l)
+	@Scheduled(cron = "00 02 22 * * *") // EVERYDAY at 10:02PM
 	public void generateReport() {
 		System.out.println("\n************** INSIDE GENERATE REPORT ************** ");
 		serv.getAllEmpBySp();

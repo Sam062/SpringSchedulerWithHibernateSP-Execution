@@ -1,7 +1,7 @@
 CREATE DEFINER=`root`@`localhost` PROCEDURE `getAllEmployees`()
 BEGIN
-INSERT INTO employee_backup(emp_backup_id)
-SELECT emp_id  FROM employee
+INSERT INTO employee_backup(emp_backup_id, emp_id, created_date, updated_date)
+SELECT emp_id, emp_id, sysdate(), sysdate()  FROM employee
 WHERE datediff(sysdate(), created_date)>= 2555;
 
 DELETE FROM employee 

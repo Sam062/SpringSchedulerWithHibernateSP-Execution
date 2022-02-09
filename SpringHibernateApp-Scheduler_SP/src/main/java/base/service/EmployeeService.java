@@ -36,5 +36,11 @@ public class EmployeeService {
 	public Integer delByEmpId(Integer emp_id) {
 		return dao.delEmpById(emp_id);
 	}
+	
+	public List<EmployeeBackup> getEmpBackupList() {
+		return dao.getEmpBackupList();
+		
+		
+	}
 
 }

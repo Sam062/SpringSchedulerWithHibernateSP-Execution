@@ -88,5 +88,19 @@ public class EmployeeDao {
 		}
 		return flag;
 	}
+	public List<EmployeeBackup> getEmpBackupList() {
+		String q="SELECT * FROM employee_backup";
+		List<EmployeeBackup> list=new ArrayList<>(); 
+		try {
+			Session session=sf.openSession();
+			Query<?> query=session.createSQLQuery(q).addEntity(EmployeeBackup.class);
+
+			list = (List<EmployeeBackup>) query.list();
+			System.out.println(list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
 
 }
